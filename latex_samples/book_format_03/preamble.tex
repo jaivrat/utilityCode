@@ -13,6 +13,31 @@
 %-- would not be affected—neither the bookmarks nor those red frames would be printed
 \usepackage{hyperref}
 
+
+%-- Add this
+\usepackage{titlesec}
+
+%-- for drawings
+\usepackage{tikz}
+
+%-- to specify layout and font of the chapter headings
+%-- titlesec, which provides a comprehensive interface for customizing headings, of parts,
+%-- chapters, sections, and even smaller sectioning parts down
+%-- to subparagraphs.
+
+\titleformat{\chapter}[display]
+ {\normalfont\sffamily\Large\bfseries\centering}
+ {\chaptertitlename\ \thechapter}{0pt}{\Huge}
+
+%-- define the section heading by calling \titleformat again
+\titleformat{\section}
+ {\normalfont\sffamily\large\bfseries\centering}
+ {\thesection}{1em}{}
+
+%--  to adjust the chapter headings spacing:
+\titlespacing*{\chapter}{0pt}{30pt}{20pt}
+
+
 \newtheorem{thm}{Theorem}[chapter]
 \newtheorem{lem}[thm]{Lemma}
 \theoremstyle{definition}
