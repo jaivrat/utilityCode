@@ -18,6 +18,8 @@
 %-- For math symbols
 \usepackage{amsmath}
 \usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+
 
 %-- This introduces hyper rereferences in document : The print version
 %-- would not be affected—neither the bookmarks nor those red frames would be printed
@@ -281,7 +283,7 @@
   boxsep=1pt,
   colback={White!90!White},
   enhanced jigsaw,
-  borderline west={0pt}{0pt}{Black},
+  borderline west={0pt}{0pt}{White},
   sharp corners,
   before skip=5pt,
   after skip=5pt,

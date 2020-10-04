@@ -2,8 +2,8 @@
 \chapter[]{ Polynomials And Equations}
 \epigraph{Politics is for the present, while our equations are for the eternity.}{- Albert Einstein}
 
-\section[Problem Set-01]{Problem Set-01}
-\begin{flushright}1 Hour\end{flushright}
+\section[Problem Set-01]{Problem Set-01 \begin{flushright}1 Hour\end{flushright}}
+
 
 \begin{problem}
 Find the number of postive roots of the equation $ x^{11} - 3 x^5 + x^4 + 1 = 0$\begin{flushright}[4] marks\end{flushright}
@@ -39,6 +39,7 @@ c
 6
 \end{answer}
 
+\newpage
 
 \section[Solution Set-01]{Solution Set-01}
 %---------------- Solutions
@@ -63,22 +64,31 @@ c
 					(2m - m^2)^2+8m^3 &> 0  \tag{1}
 				 \end{align*}
 
-	  $-\frac{1}{2}$ and $2$ lie inside the roots of $x^2 + (2m - m^2)x - 2m^3 = 0$
+	  $-\frac{1}{2}$ and $1$ lie inside the roots of $x^2 + (2m - m^2)x - 2m^3 = 0$
 
-    \begin{tikzpicture}
-    		\begin{axis}[ axis y line=center,
-                  		axis x line=middle,
-                  		axis equal,
-                  		xmax=2, xmin=-2,
-                  		ymin=-2,ymax=2,
-                  		xlabel=$x$,
-                      ylabel=$y$,
-                  		width=15cm,
-                  		anchor=center,
-                  		samples=50]
-    		\addplot{x^2-x-1};
-    		\end{axis}
-		\end{tikzpicture}
+	\begin{center}
+	 \begin{tikzpicture}
+		 \begin{axis}[
+		 % width and height if axis, adjust to your liking
+		 width=12cm,
+		 height=6cm,
+		 xtick=\empty, % remove all ticks from x-axis
+		 ytick=\empty, % ditto for y-axis
+		 xlabel=$x$,
+		 ylabel=$y$,
+		 axis lines=center, % default is to make a box around the axis
+		 domain=-2.5:2.5,
+		 samples=100]
+	 \addplot [red] {x^2-x-2};
+	 \filldraw (-0.5,0) circle[radius=2.0pt];
+	 \filldraw (1.0,0) circle[radius=2.0pt];
+	 \addplot[mark=*] coordinates {(-0.5,0)} node[pin=90:{$-\frac{1}{2}$}]{} ;
+	 \addplot[mark=*] coordinates {(1,0)} node[pin=90:{$1$}]{} ;
+		\end{axis}
+
+	 \end{tikzpicture}
+ \end{center}
+
     $\Rightarrow f \left( -\frac{1}{2} \right) < 0 $ and $ f(1) < 0 $
 
     \begin{flalign*}
