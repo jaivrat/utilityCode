@@ -1,0 +1,29 @@
+\documentclass[a4paper,12pt]{book}
+
+\input{preamble}
+
+%--- From here the document begins
+\begin{document}
+
+%-- add table of contents
+\tableofcontents
+
+%----- Optional - this breaks book into parts
+\part{Part One's Name}
+\include{chapter_01}
+
+%----- Optional - this breaks book into parts
+\part{Part Two's Name}
+\include{chapter_02}
+
+
+%---- Appendix Start
+\appendix
+\cleardoublepage
+\addtocontents{toc}{\bigskip}
+\addcontentsline{toc}{part}{Appendix}
+\chapter{Glossary}
+\chapter{Symbols}
+%---- Appendix End
+
+\end{document}
