@@ -1,9 +1,21 @@
 \documentclass[a4paper,12pt]{book}
 
+%------- To change capter counters in parts of the book
 \usepackage{chngcntr}
 \counterwithin*{chapter}{part}
 
 \input{preamble}
+
+%------- To mark section numbers on top of page
+\lhead{\nouppercase{\rightmark}}
+\chead{}
+\rhead{}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{%
+\markboth{#1}{}}
+%------- To mark section numbers on top of page
 
 %--- From here the document begins
 \begin{document}
