@@ -1,5 +1,10 @@
 \documentclass[a4paper,12pt]{book}
 
+%------- To change capter counters in parts of the book
+\usepackage{chngcntr}
+\counterwithin*{chapter}{part}
+
+
 \input{preamble}
 
 %--- From here the document begins
@@ -9,13 +14,12 @@
 \tableofcontents
 
 %----- Optional - this breaks book into parts
-%--\part{Part One's Name}
+\part{Questions}
 \input{chapter_01}
-\input{chapter_02}
 
 %----- Optional - this breaks book into parts
-%--\part{Part Two's Name}
-
+\part{Solutions}
+\input{chapter_02}
 
 %---- Appendix Start
 %\appendix
