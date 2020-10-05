@@ -6,6 +6,17 @@
 
 
 \input{preamble}
+%------- To mark section numbers on top of page
+\lhead{\nouppercase{\rightmark}}
+\chead{}
+\rhead{}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{%
+\markboth{#1}{}}
+%------- To mark section numbers on top of page
+
 
 %--- From here the document begins
 \begin{document}
@@ -16,10 +27,14 @@
 %----- Optional - this breaks book into parts
 \part{Questions}
 \input{chapter_01}
+\input{chapter_02}
+
+
 
 %----- Optional - this breaks book into parts
 \part{Solutions}
-\input{chapter_02}
+\input{solutions_to_chapter_01}
+\input{solutions_to_chapter_02}
 
 %---- Appendix Start
 %\appendix
