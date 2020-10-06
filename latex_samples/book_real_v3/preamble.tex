@@ -1,0 +1,293 @@
+\usepackage[dvipsnames]{xcolor}
+\usepackage[many]{tcolorbox}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{natbib}
+\usepackage{tocbibind}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{blindtext}
+% \usepackage[a5paper]{geometry}
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=2.5cm, bottom=2.5cm, bindingoffset=1.5cm]{geometry}
+%- For line spacing
+\usepackage[onehalfspacing]{setspace}
+%-- For math symbols
+\usepackage{amsmath}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+
+
+%-- This introduces hyper rereferences in document : The print version
+%-- would not be affected—neither the bookmarks nor those red frames would be printed
+\usepackage{hyperref}
+
+%-- Add this
+\usepackage{titlesec}
+
+%-- for drawings
+\usepackage{tikz}
+
+%--- Preamble : here you set new rules
+    %--- For foonote  (else you can use \protect\footnote{Your note here} )
+\renewcommand{\footnoterule}{\noindent\smash{\rule[3pt]{\textwidth}{0.4pt}}}
+    %--- You can use this to name the contents, real place is tableofcontents below
+\renewcommand{\contentsname}{Table of Contents}
+
+%--- Customizing headers: Start
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\nouppercase{\rightmark}}
+\fancyfoot[LE,RO]{\thepage}
+    %Switches to the page style fancy from this point onwards
+\pagestyle{fancy}
+%--- Customizing headers: End
+
+
+%-- to specify layout and font of the chapter headings
+%-- titlesec, which provides a comprehensive interface for customizing headings, of parts,
+%-- chapters, sections, and even smaller sectioning parts down
+%-- to subparagraphs.
+
+\titleformat{\chapter}[display]
+ {\normalfont\sffamily\Large\bfseries\raggedright}
+ {\chaptertitlename\ \thechapter}{0pt}{\Huge}
+
+%-- define the section heading by calling \titleformat again
+\titleformat{\section}
+ {\normalfont\sffamily\large\bfseries\raggedright}
+ {\thesection}{1em}{}
+
+%--  to adjust the chapter headings spacing:
+\titlespacing*{\chapter}{0pt}{30pt}{20pt}
+
+
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lem}[thm]{Lemma}
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definition}
+
+%--- pdf medatadate:
+\hypersetup{pdfauthor={Chimpoo},
+ pdftitle={The Big Book of Equations},
+ pdfsubject={Solving Equations and Equation Systems},
+ pdfkeywords={equations,mathematics}}
+
+
+ %--- Those quotations
+ \usepackage{epigraph}
+ \setlength{\epigraphwidth}{0.8\textwidth}
+ \setlength{\epigraphrule}{0pt}
+ \renewcommand*{\textflush}{flushright}
+ \renewcommand*{\epigraphsize}{\normalsize\itshape}
+
+
+
+
+
+
+%-----------------------------------------------------------------------
+%---------------------FROM THAT EXAMPLE NOTEX------------------------------
+%-----------------------------------------------------------------------
+
+
+
+
+% ----------------------------------------------------------------------
+%           User Top Level Packages: Required
+% ----------------------------------------------------------------------
+
+\usepackage{marginnote,sidenotes,fancyhdr,titlesec,geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[many]{tcolorbox}
+
+% ----------------------------------------------------------------------
+%           User Top Level Packages: Additional & Styling
+% ----------------------------------------------------------------------
+
+\usepackage[T1]{fontenc}                            % Font Styling
+\usepackage{lmodern,mathrsfs}
+
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{mathtools,amssymb,amsfonts,amsthm,bm}   % Math Presets
+\usepackage{array,tabularx,booktabs}                % Table Presets
+\usepackage{graphicx,wrapfig,float,caption}         % Figure Presets
+\usepackage{setspace,multicol}                      % Text Presets
+\usepackage{tikz,physics,cancel}                    % Physics Presets
+
+
+
+
+% ----------------------------------------------------------------------
+%           User Created Environments
+% ----------------------------------------------------------------------
+
+
+\newtheoremstyle{mystyle}%
+  {}%
+  {}%
+  {}%
+  {}%
+  {\sffamily\bfseries}%
+  {.}%
+  { }%
+  {}%
+
+\renewenvironment{proof}{{\sffamily\bfseries Proof. }}{\qed}
+
+\theoremstyle{mystyle}{
+  \newtheorem*{remark}{Remark}
+}
+
+\theoremstyle{mystyle}{
+  \newtheorem{definition}{Definition}[section]
+}
+
+\theoremstyle{mystyle}{
+  \newtheorem{theorem}{Theorem}[section]
+}
+
+\theoremstyle{mystyle}{
+  \newtheorem{lemma}[theorem]{Lemma}
+}
+
+\theoremstyle{mystyle}{
+  \newtheorem*{example}{Example}
+}
+
+\theoremstyle{definition}{
+    \newtheorem*{exercise}{Exercise}
+}
+
+% ----------------------------------------------------------------------
+% start: By jv
+\theoremstyle{mystyle}{
+  \newtheorem{problem}{Problem}[section]
+}
+\theoremstyle{mystyle}{
+  \newtheorem{answer}{Answers}[section]
+}
+\theoremstyle{mystyle}{
+  \newtheorem{solution}{Solution}[section]
+}
+% end: By jv
+% ----------------------------------------------------------------------
+
+
+
+\tcolorboxenvironment{definition}{
+  boxrule=0pt,
+  boxsep=2pt,
+  colback={White!90!Cerulean},
+  enhanced jigsaw,
+  borderline west={2pt}{0pt}{Cerulean},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  breakable,
+}
+
+\tcolorboxenvironment{theorem}{
+  boxrule=0pt,
+  boxsep=2pt,
+  colback={White!90!Dandelion},
+  enhanced jigsaw,
+  borderline west={2pt}{0pt}{Dandelion},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  breakable,
+}
+
+\tcolorboxenvironment{lemma}{
+  boxrule=0pt,
+  boxsep=2pt,
+  blanker,
+  borderline west={2pt}{0pt}{Red},
+  before skip=10pt,
+  after skip=10pt,
+  sharp corners,
+  left=12pt,
+  right=12pt,
+  breakable,
+}
+
+\tcolorboxenvironment{proof}{
+  boxrule=0pt,
+  boxsep=2pt,
+  blanker,
+  borderline west={2pt}{0pt}{NavyBlue!80!white},
+  before skip=10pt,
+  after skip=10pt,
+  left=12pt,
+  right=12pt,
+  breakable,
+}
+
+\tcolorboxenvironment{remark}{
+  boxrule=0pt,
+  boxsep=2pt,
+  blanker,
+  borderline west={2pt}{0pt}{Green},
+  before skip=10pt,
+  after skip=10pt,
+  left=12pt,
+  right=12pt,
+  breakable,
+}
+
+\tcolorboxenvironment{example}{
+  boxrule=0pt,
+  boxsep=2pt,
+  blanker,
+  borderline west={2pt}{0pt}{Black},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  left=12pt,
+  right=12pt,
+  breakable,
+}
+
+% ----------------------------------------------------------------------
+% By jv start
+\tcolorboxenvironment{problem}{
+  boxrule=0pt,
+  boxsep=2pt,
+  colback={White!90!White},
+  enhanced jigsaw,
+  borderline west={2pt}{0pt}{White},
+  sharp corners,
+  before skip=1pt,
+  after skip=1pt,
+  breakable,
+}
+\tcolorboxenvironment{answer}{
+  boxrule=0pt,
+  boxsep=1pt,
+  colback={White!90!White},
+  enhanced jigsaw,
+  borderline west={0pt}{0pt}{White},
+  sharp corners,
+  before skip=1pt,
+  after skip=1pt,
+  breakable,
+}
+\tcolorboxenvironment{solution}{
+  boxrule=0pt,
+  boxsep=1pt,
+  colback={White!90!White},
+  enhanced jigsaw,
+  borderline west={0pt}{0pt}{White},
+  sharp corners,
+  before skip=5pt,
+  after skip=5pt,
+  breakable,
+}
+% By jv end
+% ----------------------------------------------------------------------
