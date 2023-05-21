@@ -145,5 +145,25 @@ Integral with shaded area, with figure and centering:
 \caption{This is Area under the curve}
 \end{figure}
 
+\pagebreak
+With polynomial kind :
+
+\begin{figure}[h]
+    \begin{tikzpicture}[domain = -5:5]
+        \begin{axis}[axis lines=middle,
+            xlabel=$x$,
+            ylabel=$y$,
+            enlargelimits,
+            ytick=\empty,
+            xtick={-3,1,4},
+            xticklabels={-3,1,2}]
+        \addplot[name path=F,blue,domain={-3.5:5}] {(\x+3)*(\x-1)*(\x-4)} node[pos=0.8, left]{$f(x) = (x+3)(x-1)(x-2)$};
+        %\addplot[name path=G,gray, thin,domain={0:5}] {0};
+        %\addplot[pattern=north west lines, pattern color=brown!50]fill between[of=F and G, soft clip={domain=1:4}];
+        \end{axis}
+    \end{tikzpicture}
+    \caption{This is Area under the curve}
+    \end{figure}
+
 
 \end{document}
