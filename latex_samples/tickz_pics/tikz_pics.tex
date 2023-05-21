@@ -149,7 +149,7 @@ Integral with shaded area, with figure and centering:
 With polynomial kind :
 
 \begin{figure}[h]
-    \begin{tikzpicture}[domain = -5:5]
+\begin{tikzpicture}[domain = -5:5]
         \begin{axis}[axis lines=middle,
             xlabel=$x$,
             ylabel=$y $,
@@ -161,7 +161,39 @@ With polynomial kind :
         \end{axis}
     \end{tikzpicture}
     \caption{Cubic Polynomial}
-    \end{figure}
+\end{figure}
+
+With figure trial:
+    
+\begin{figure}[h]
+        \begin{tikzpicture}[domain = -5:5]
+            \begin{axis}[axis lines=middle,
+                xlabel=$x$,
+                ylabel=$y $,
+                enlargelimits,
+                ytick=\empty,
+                xtick={-3,1,4},
+                xticklabels={-3,1,2}]
+            \addplot[name path=F,blue,domain={-3.5:5}] {(\x+3)*(\x-1)*(\x-4)} node[pos=0.8, left]{\tiny $f(x) = (x+3)(x-1)(x-2)$};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{A cubic polynomial}
+\end{figure}
+        
+\begin{figure}[h]
+        \begin{tikzpicture}[domain = -5:5]
+            \begin{axis}[axis lines=middle,
+                xlabel=$x$,
+                ylabel=$y $,
+                enlargelimits,
+                ytick=\empty,
+                xtick={-3,1,4},
+                xticklabels={-3,1,2}]
+            \addplot[name path=F,blue,domain={-3.5:5}] {(\x+3)*(\x-1)*(\x-4)^2} node[pos=0, above]{\tiny $f(x)$};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{$f(x) = (x+3)(x-1)(x-2)^2$}
+\end{figure}
 
 
 \end{document}
