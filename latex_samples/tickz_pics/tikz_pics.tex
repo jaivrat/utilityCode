@@ -8,9 +8,20 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
-\usetikzlibrary{calc, patterns,angles,quotes, arrows.meta, shadows, external}
+\usetikzlibrary{calc, patterns,angles,quotes, arrows.meta, shadows, external,positioning}
 \usepgfplotslibrary{statistics}
 \usepgfplotslibrary{fillbetween}
+
+% for right angles https://tikz.net/right_angle/
+\tikzset{
+  pics/right angle/.style args={(#1)-(#2)-(#3):#4}{
+    code={
+      \pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}{\pgfpointanchor{#1}{center}}
+      \coordinate (tmpRA) at ($(#2)+(\pgfmathresult+45:#4)$);
+      \draw[blue!80!black,thick] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
+    }
+  }
+}
 
 \title{Plotting Ticz}
 \author{JV}
@@ -258,5 +269,41 @@ Complex numbers marked on circle
         %\draw[-{Stealth[scale=2]}, dashed] (C) -- ++(R) node[midway, above left]{$r$};
     \end{tikzpicture}    
 \end{center}
+
+\pagebreak 
+
+Triangle thingy..
+
+%\tikzstyle{rel line to}= [to path={-- +(\tikztotarget) \tikztonodes}]
+
+\begin{tikzpicture}
+    \def \PX {0.0};
+    \def \PY {0.0};
+    \def \PR {10.0};
+    \def \PS {\PR * cos(40)};
+    \def \RS {\PR * sin(40)};
+    \def \SQ {\RS / tan(80)};
+
+    \coordinate (P) at ({\PX},{\PY});
+    \coordinate (S) at ({\PX + \PS},{\PY});
+    \coordinate (R) at ( {\PX + \PS}, {\PY + \RS});
+    \coordinate (Q) at ( {\PX + \PS + \SQ}, {\PY});
+    
+    \def\rectanglepath{-- ++(0.5cm,0cm)  -- ++(0cm,0.5cm)  -- ++(-0.5cm,0cm) -- cycle};
+
+    \draw (P) -- (Q) -- (R) -- cycle;
+    \draw[dashed, thin] (R) -- (S);
+    \draw[thin] (S) -- (P);
+    \node[below left, outer sep=2pt] at (P) {$P$};
+    \node[below right, outer sep=2pt] at (Q) {$Q$};
+    \node[above, outer sep=2pt] at (R) {$R$};
+    \node[below, outer sep=2pt] at (S) {$S$};
+    \pic["$40$", draw=orange, <->, angle eccentricity=1.2, angle radius=1cm] {angle=Q--P--R};
+    \pic["$60$", draw=orange, <->, angle eccentricity=1.2, angle radius=1cm] {angle=P--R--Q};
+    \pic["$80$", draw=orange, <->, angle eccentricity=1.2, angle radius=0.5cm, above right] {angle=R--Q--P};
+    % right angle - defined in tikzset at top of file
+    \pic {right angle={(R)-(S)-(P):0.6}};
+\end{tikzpicture}
+
 
 \end{document}
