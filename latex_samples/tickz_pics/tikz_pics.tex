@@ -311,16 +311,6 @@ Circle 2023.10.08
 
 \begin{center}
     \begin{tikzpicture}[domain = -5:5]
-        %\def\cy{3.0};
-        %\def\cx{0.0};
-        %\coordinate (C) at (\cx,\cy);
-        %\def\r{2.0};
-        %\def\ang{30};
-        %\def\q{\cy-0};
-        %\def\ax{{\cx + \r * cos \ang}}; % Q x coordinate
-        %\def\ay{{\cy + \r * sin \ang}}; % Q y coordinate
-        %\def\qx{{\ax + \ay * sqrt(3.0)}}; % Q x coordinate
-        %\def\qy{0.0}; % Q y coordinate
         \tikzmath{
             \cy = 3.0;
             \cx = 0.0;
@@ -357,16 +347,8 @@ Circle 2023.10.08
         % right angle - defined in tikzset at top of file
         \pic {right angle={(C)-(A)-(Q):0.6}};
 
-        %\coordinate (R) at ({\ang}:{\r});
-        %\coordinate (Z1) at ({120+\ang}:{\r});
-        %\coordinate (H) at (\r,0);
         \coordinate (Z) at (\zx,\zy);
         \node at (Z) [below] {$Z_1$};
-        
-        %\fill[red] (C) -- ++(Z1)  circle(0.05) node[above] {$Z_1$};
-        %\fill[red] (A) circle(0.05) node[above] {A};
-        %\draw[orange] ($(Q)!-0.2!(A)$) -- ($(Q)!3!(A)$);
-        %\draw[-{Stealth[scale=2]}, dashed] (C) -- ++(R) node[midway, above left]{$r$};
     \end{tikzpicture}    
 \end{center}
 
